@@ -7,6 +7,8 @@ import { UsersComponent } from './users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserCreateComponent } from './user-create/user-create.component';
 
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { UserCreateComponent } from './user-create/user-create.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],
