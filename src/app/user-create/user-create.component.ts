@@ -18,7 +18,10 @@ export class UserCreateComponent implements OnInit {
   }
 
   create(): void {
-    console.log(this.user);
+   this.userService.create(this.user).subscribe(user => {
+      console.log("Created user");
+     this.user = user;
+   });
   }
 
 }
