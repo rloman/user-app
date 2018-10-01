@@ -1,6 +1,8 @@
   <div>
     Exampe list
     <ul>
-      <li *ngFor="let user of users" (click)="onSelect(user);">id: {{ user.id }} has name: {{ user.name }}</li>
+      <li *ngFor="let user of users">
+        <a [routerLink]="['/users', user.id]">id: {{ user.id }} has name: {{ user.name }} </a>
+      </li>
     </ul>
   </div>

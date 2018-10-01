@@ -18,11 +18,15 @@ export class UserService {
 
    }
 
-  get(): Observable<User[]> {
+  list(): Observable<User[]> {
     return this.httpClient.get<User[]>(`${this.url}/${this.endpoint}`);
   }
 
   create(user: User): Observable<User> {
     return this.httpClient.post<User>(`${this.url}/${this.endpoint}`, user);
+  }
+
+  findById(id: Number): Observable<User> {
+    return this.httpClient.get<User>(`${this.url}/${this.endpoint}/${id}`);
   }
 }
