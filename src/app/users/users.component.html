@@ -1,6 +1,6 @@
   <div>
     Exampe list
     <ul>
-      <li *ngFor="let user of users">id: {{ user.id }} has name: {{ user.name }}</li>
+      <li *ngFor="let user of users" (click)="onSelect(user);">id: {{ user.id }} has name: {{ user.name }}</li>
     </ul>
   </div>
