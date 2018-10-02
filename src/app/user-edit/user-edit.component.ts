@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
+import { UserService } from '../user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-edit',
@@ -6,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent implements OnInit {
+  
+  private user: User;
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {
+ // @PostConstruct :-) // fetching our task using the id since we are sending it using a GET request
+ ngOnInit(): void {
+    const id = +this.route.snapshot.params["id"];
+
+    this.userService.findById(id).subscribe( user => {
+      this.user = user;
+    })
   }
 
+  update(): void {
+    this.userService.update(this.user).subscribe(updatedUser => {
+      console.log("Updated in Component: "+updatedUser.id)
+    });
+  }
 }

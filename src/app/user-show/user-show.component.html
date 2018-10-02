@@ -1,5 +1,5 @@
-<h1>Overview of details for user {{ user.name }}</h1>
-<div *ngIf="user.name">
+<h1>Overview of details for user {{ user?.name }}</h1>
+<div *ngIf="user">
 
   id: {{ user.id }} <br/>
   name: {{ user.name }} <br />

@@ -29,4 +29,8 @@ export class UserService {
   findById(id: Number): Observable<User> {
     return this.httpClient.get<User>(`${this.url}/${this.endpoint}/${id}`);
   }
+
+  update(user: User): Observable<User> {
+        return this.httpClient.put<User>(`${this.url}/${this.endpoint}/${user.id}`, user);
+  }
 }
