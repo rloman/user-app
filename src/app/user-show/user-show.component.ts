@@ -20,13 +20,10 @@ export class UserShowComponent implements OnInit {
 
  // @PostConstruct :-) // fetching our task using the id since we are sending it using a GET request
  ngOnInit(): void {
-  const id = +this.route.snapshot.params["id"];
+    const id = +this.route.snapshot.params["id"];
 
-  this.userService.findById(id).subscribe( user => {
-    this.user = user;
-  })
-}
-
-
-
+    this.userService.findById(id).subscribe( user => {
+      this.user = user;
+    })
+  }
 }
