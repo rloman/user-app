@@ -9,6 +9,7 @@ import { UserCreateComponent } from './user-create/user-create.component';
 
 import { FormsModule } from '@angular/forms';
 import { UserShowComponent } from './user-show/user-show.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 
 
@@ -17,7 +18,8 @@ import { UserShowComponent } from './user-show/user-show.component';
     AppComponent,
     UsersComponent,
     UserCreateComponent,
-    UserShowComponent
+    UserShowComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

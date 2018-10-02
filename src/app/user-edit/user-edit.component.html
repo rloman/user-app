@@ -1,0 +1,11 @@
+<h1>Overview of details for user {{ user?.name }}</h1>
+<div *ngIf="user">
+
+  id: <input readonly [(ngModel)] = "user.id"><br/>
+  name: <input [(ngModel)]= "user.name"> <br />
+  username: <input [(ngModel)] = "user.username"><br />
+  email: <input [(ngModel)]="user.email"> <br />
+
+  <input type="button" value="Save" (click)="update();">
+
+</div>

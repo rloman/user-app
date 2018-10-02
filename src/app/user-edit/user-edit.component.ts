@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
 import { User } from '../user';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { UserService } from '../user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-user-show',
-  templateUrl: './user-show.component.html',
-  styleUrls: ['./user-show.component.css']
+  selector: 'app-user-edit',
+  templateUrl: './user-edit.component.html',
+  styleUrls: ['./user-edit.component.css']
 })
-export class UserShowComponent implements OnInit {
-
-
+export class UserEditComponent implements OnInit {
+  
   private user: User;
 
   constructor(
@@ -25,5 +24,11 @@ export class UserShowComponent implements OnInit {
     this.userService.findById(id).subscribe( user => {
       this.user = user;
     })
+  }
+
+  update(): void {
+    this.userService.update(this.user).subscribe(updatedUser => {
+      console.log("Updated in Component: "+updatedUser.id)
+    });
   }
 }
