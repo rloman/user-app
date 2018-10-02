@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserCreateComponent } from './user-create/user-create.component';
 
 import { FormsModule } from '@angular/forms';
+import { UserShowComponent } from './user-show/user-show.component';
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     UsersComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    UserShowComponent
   ],
   imports: [
     BrowserModule,
