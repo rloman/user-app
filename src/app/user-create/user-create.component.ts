@@ -9,7 +9,7 @@ import { User } from '../user';
 })
 export class UserCreateComponent implements OnInit {
 
-  private user: User;
+  private user: User; // or add with = new User();
 
   constructor(private userService: UserService) { }
 
@@ -20,7 +20,7 @@ export class UserCreateComponent implements OnInit {
   create(): void {
    this.userService.create(this.user).subscribe(user => {
       console.log("Created user");
-     this.user = user;
+      this.ngOnInit();
    });
   }
 
