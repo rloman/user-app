@@ -2,7 +2,7 @@
     Exampe list
     <ul>
       <li *ngFor="let user of users">
-        id: {{ user.id }} has name: {{ user.name }} <a [routerLink]="['/users', user.id]">Show</a>&nbsp;<a [routerLink]="['/users/edit', user.id]">Edit</a>
+        id: {{ user.id }} has name: {{ user.name }} <button [routerLink]="['/users', user.id]">Show</button>
       </li>
     </ul>
 
