@@ -30,7 +30,7 @@ export class UserEditComponent implements OnInit {
   update(): void {
     this.userService.update(this.user).subscribe(updatedUser => {
       console.log("Updated in Component: "+updatedUser.id)
-      this.router.navigate([`/users/${this.user.id}`])
+      this.router.navigate(["users", this.user.id]);
     });
   }
 }
