@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-edit',
@@ -14,7 +14,8 @@ export class UserEditComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
  // @PostConstruct :-) // fetching our task using the id since we are sending it using a GET request
@@ -29,6 +30,7 @@ export class UserEditComponent implements OnInit {
   update(): void {
     this.userService.update(this.user).subscribe(updatedUser => {
       console.log("Updated in Component: "+updatedUser.id)
+      this.router.navigate(["users", this.user.id]);
     });
   }
 }

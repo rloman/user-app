@@ -11,8 +11,6 @@ export class UsersComponent implements OnInit {
 
   private users: User[];
 
-  private user: User;
-
 	// dependency injects the userService here as a field / instance var
   constructor(private userService: UserService) {
 
@@ -23,9 +21,4 @@ export class UsersComponent implements OnInit {
       this.users = users;
     });
   }
-
-  onSelect(user): void{
-    console.log(user);
-  }
-
 }

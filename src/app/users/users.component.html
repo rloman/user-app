@@ -5,4 +5,6 @@
         id: {{ user.id }} has name: {{ user.name }} <a [routerLink]="['/users', user.id]">Show</a>&nbsp;<a [routerLink]="['/users/edit', user.id]">Edit</a>
       </li>
     </ul>
+
+    <button [routerLink]="['/users', 'create']">Create a new user ... </button>
   </div>
