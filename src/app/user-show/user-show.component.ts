@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-show',
@@ -15,7 +15,8 @@ export class UserShowComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
  // @PostConstruct :-) // fetching our task using the id since we are sending it using a GET request
@@ -25,5 +26,12 @@ export class UserShowComponent implements OnInit {
     this.userService.findById(id).subscribe( user => {
       this.user = user;
     })
+  }
+
+  delete(): void {
+    this.userService.delete(this.user).subscribe(victim => {
+        // console.log(`Deleted user ${victim.id}`);
+        this.router.navigate(['/users']);
+    });
   }
 }

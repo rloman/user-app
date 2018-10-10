@@ -35,4 +35,8 @@ export class UserService {
   update(user: User): Observable<User> {
         return this.httpClient.put<User>(`${this.url}/${this.endpoint}/${user.id}`, user);
   }
+
+  delete(user: User): Observable<User> {
+    return this.httpClient.delete<User>(`${this.url}/${this.endpoint}/${user.id}`);
+  }
 }

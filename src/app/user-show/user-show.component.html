@@ -6,6 +6,8 @@
   username: {{ user.username }} <br />
   email: {{ user.email }} <br />
 
-  <a routerLink="/users">Back</a>
+  <button [routerLink]="['/users/edit', user.id]">Edit</button>
+  <button (click)="delete();">Delete</button>
+
 
 </div>
