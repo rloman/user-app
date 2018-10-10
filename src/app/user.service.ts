@@ -10,7 +10,7 @@ export class UserService {
 
   // private url: string = "http://jsonplaceholder.typicode.com"; // this will change during dev, test, acct and production environment
   // private url: string = "http://localhost:8080/api"; // this will change during dev, test, acct and production environment
-  private url: string = "http://localhost:8081/api"; // this will change during dev, test, acct and production environment
+  private url = 'http://localhost:8081/api'; // this will change during dev, test, acct and production environment
 
   private endpoint: string = "users";
 
