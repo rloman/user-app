@@ -17,7 +17,13 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: UsersComponent // default route
+    redirectTo: 'users', // default route // /with only the trailing slash hence !!!! http://localhost:4200/ (redirectTo users)
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'users', // invalid route => // /with only the trailing slash hence !!!! http://localhost:4200/ (redirectTo users)
+    pathMatch: 'full'
   },
   {
     path: 'users/:id',
