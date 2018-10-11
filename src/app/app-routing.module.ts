@@ -26,11 +26,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'users/:id',
+    path: 'users/:id', // you can make a button now like this <button [routerLink]="['users', user.id]">Show</button>
     component: UserShowComponent
   },
   {
-    path: 'users/edit/:id',
+    path: 'users/edit/:id', // you can make a button now like this <button [routerLink]="['users', 'edit', user.id]">Edit</button>
     component: UserEditComponent
   }
 ];
