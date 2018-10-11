@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'users', // invalid route => // /with only the trailing slash hence !!!! http://localhost:4200/ (redirectTo users)
+    redirectTo: 'users', // invalid route => // / !!!! http://localhost:4200/ (redirectTo users)
     pathMatch: 'full'
   },
   {
