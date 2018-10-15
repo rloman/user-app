@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
   templateUrl: './user-show.component.html',
   styleUrls: ['./user-show.component.css']
 })
-export class UserShowComponent implements OnInit {
+export class UserShowComponent implements OnInit, OnDestroy {
 
 
   private user: User;
@@ -33,5 +33,17 @@ export class UserShowComponent implements OnInit {
         // console.log(`Deleted user ${victim.id}`);
         this.router.navigate(['/users']);
     });
+  }
+
+  ngOnDestroy(): void {
+   this.user = null;
+   console.log(this.user);
+   this.assert("user should be null", this.user == null);
+  }
+
+  assert(message, assertion): void {
+    if(!assertion) {
+      throw new Error(message);
+    }
   }
 }
