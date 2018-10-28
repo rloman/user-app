@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-show',
@@ -13,6 +14,8 @@ export class UserShowComponent implements OnInit, OnDestroy {
 
   private user: User;
 
+  private subscription: Subscription;
+
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
@@ -23,7 +26,7 @@ export class UserShowComponent implements OnInit, OnDestroy {
  ngOnInit(): void {
     const id = +this.route.snapshot.params["id"];
 
-    this.userService.findById(id).subscribe( user => {
+    this.subscription = this.userService.findById(id).subscribe( user => {
       this.user = user;
     })
   }
@@ -39,6 +42,9 @@ export class UserShowComponent implements OnInit, OnDestroy {
    this.user = null;
    console.log(this.user);
    this.assert("user should be null", this.user == null);
+
+   // and finally unsubscribe from the subscription
+   this.subscription.unsubscribe();
   }
 
   assert(message, assertion): void {
