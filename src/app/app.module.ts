@@ -22,7 +22,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     UserEditComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, // this Module also re-exports CommonModule which is imported ngIf, ngFor and the now used  async pipe in UsersComponent.html
     AppRoutingModule,
     FormsModule,
     HttpClientModule
