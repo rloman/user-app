@@ -6,7 +6,6 @@
   username: {{ user.username }} <br />
   email: {{ user.email }} <br />
 
-  Post
   <app-posts [posts]="user.posts"></app-posts>
 
   <button class="edit" [routerLink]="['/users', 'edit', user.id]">Edit</button>

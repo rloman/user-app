@@ -1,8 +1,12 @@
-<div>
+<div *ngIf="posts">
   List of Posts
   <ul>
     <li *ngFor="let post of posts">
-      id: {{ post.id }} has title: {{ post.title }} and has body {{ post.body }}
+      <p>
+      id: {{ post.id }}
+    </p>
+    <p>title: {{ post.title }} </p>
+    <p>body {{ post.body }}</p>
     </li>
   </ul>
 </div>

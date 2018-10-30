@@ -6,18 +6,9 @@ import { Post } from '../post';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent {
 
   @Input()
   posts: Post[];
-
-	// dependency injects the userService here as a field / instance var
-  constructor() {
-
-   }
-
-  ngOnInit() {
-     
-  }
 
 }
