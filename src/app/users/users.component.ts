@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -9,7 +10,7 @@ import { User } from '../user';
 })
 export class UsersComponent implements OnInit {
 
-  private users: User[];
+  private users$: Observable<User[]>;
 
 	// dependency injects the userService here as a field / instance var
   constructor(private userService: UserService) {
@@ -17,8 +18,6 @@ export class UsersComponent implements OnInit {
    }
 
   ngOnInit() {
-     this.userService.list().subscribe(users => {
-      this.users = users;
-    });
+     this.users$ = this.userService.list();
   }
 }
