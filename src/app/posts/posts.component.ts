@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  constructor() { }
+  private posts: Post[];
+
+	// dependency injects the userService here as a field / instance var
+  constructor() {
+
+   }
 
   ngOnInit() {
+     
   }
 
 }
