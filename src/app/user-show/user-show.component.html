@@ -7,7 +7,7 @@
   email: {{ user.email }} <br />
 
   Post
-  <app-posts [posts]={{ user.posts }}></app-posts>
+  <app-posts [posts]="user.posts"></app-posts>
 
   <button class="edit" [routerLink]="['/users', 'edit', user.id]">Edit</button>
   <button class="delete" (click)="delete();">Delete</button>
