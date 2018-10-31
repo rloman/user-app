@@ -16,6 +16,9 @@ export class UserShowComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
 
+  private agreed  = 0;
+  private disagreed = 0;
+
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
@@ -52,4 +55,11 @@ export class UserShowComponent implements OnInit, OnDestroy {
       throw new Error(message);
     }
   }
+
+  onVoted(agreed: boolean) {
+    console.log("voted: "+agreed)
+    agreed ? this.agreed++ : this.disagreed++;
+  }
+
+
 }
