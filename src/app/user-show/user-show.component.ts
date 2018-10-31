@@ -57,7 +57,7 @@ export class UserShowComponent implements OnInit, OnDestroy {
   }
 
   onVoted(agreed: boolean) {
-    console.log("voted: "+agreed)
+    // console.log("voted: "+agreed);
     agreed ? this.agreed++ : this.disagreed++;
   }
 
