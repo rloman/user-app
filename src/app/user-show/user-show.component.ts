@@ -16,8 +16,8 @@ export class UserShowComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
 
-  private agreed  = 0;
-  private disagreed = 0;
+  private likes  = 0;
+  private dislikes = 0;
 
   constructor(
     private userService: UserService,
@@ -56,9 +56,9 @@ export class UserShowComponent implements OnInit, OnDestroy {
     }
   }
 
-  onVoted(agreed: boolean) {
-    // console.log("voted: "+agreed);
-    agreed ? this.agreed++ : this.disagreed++;
+  onVoted(like: number) {
+    console.log("voted: "+like);
+    like > 0 ? this.likes++ : this.dislikes++;
   }
 
 

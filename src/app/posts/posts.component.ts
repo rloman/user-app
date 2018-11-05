@@ -12,12 +12,12 @@ export class PostsComponent {
   posts: Post[];
 
   @Output()
-  voted = new EventEmitter<boolean>();
+  voted = new EventEmitter<number>();
 
   didVote: boolean;
 
-  vote(agreed: boolean) {
-    this.voted.emit(agreed);
+  vote(like: number) {
+    this.voted.emit(like);
     this.didVote = true;
   }
 
