@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserShowComponent } from './user-show.component';
+import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { PostsComponent } from '../posts/posts.component';
 
 describe('UserShowComponent', () => {
   let component: UserShowComponent;
@@ -8,7 +12,8 @@ describe('UserShowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserShowComponent ]
+      declarations: [ UserShowComponent, PostsComponent ],
+      imports: [FormsModule, RouterTestingModule, HttpClientModule]
     })
     .compileComponents();
   }));
