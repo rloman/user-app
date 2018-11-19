@@ -3,7 +3,7 @@
   <ul>
     <li *ngFor="let post of posts">
       <p>
-      id: {{ post.id }}
+      id: {{ post.id }} <a href="javascript:void(0);" (click)="vote(1)">Like</a>
     </p>
     <p>title: {{ post.title }} </p>
     <p>body {{ post.body }}</p>

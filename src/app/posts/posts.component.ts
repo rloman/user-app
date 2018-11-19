@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Post } from '../post';
 
 @Component({
@@ -9,6 +9,13 @@ import { Post } from '../post';
 export class PostsComponent {
 
   @Input()
-  posts: Post[];
+  private posts: Post[];
+
+  @Output()  // <= this is the output 
+  private voted:EventEmitter<number> = new EventEmitter<number>();
+
+  vote(like: number) {
+    this.voted.emit(like);
+  }
 
 }

@@ -16,6 +16,9 @@ export class UserShowComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
 
+  private likes  = 0;
+  private dislikes = 0;
+
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
@@ -52,4 +55,11 @@ export class UserShowComponent implements OnInit, OnDestroy {
       throw new Error(message);
     }
   }
+
+  onVoted(like: number) {
+    console.log("voted: "+like);
+    like > 0 ? this.likes++ : this.dislikes++;
+  }
+
+
 }
