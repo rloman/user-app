@@ -9,16 +9,13 @@ import { Post } from '../post';
 export class PostsComponent {
 
   @Input()
-  posts: Post[];
+  private posts: Post[];
 
-  @Output()
-  voted = new EventEmitter<number>();
-
-  didVote: boolean;
+  @Output()  // <= this is the output 
+  private voted:EventEmitter<number> = new EventEmitter<number>();
 
   vote(like: number) {
     this.voted.emit(like);
-    this.didVote = true;
   }
 
 }
