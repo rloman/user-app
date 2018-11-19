@@ -16,7 +16,7 @@ export class UserShowComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
 
-  private likes  = 0;
+  likes  = 0;
   private dislikes = 0;
 
   constructor(
