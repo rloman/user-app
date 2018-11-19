@@ -26,8 +26,12 @@ describe('UserShowComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should increment votes when clicked on', () => {
     component.onVoted(1);
 
     expect(component.likes).toBe(1);
   });
+
 });
