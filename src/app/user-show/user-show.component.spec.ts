@@ -26,8 +26,8 @@ describe('UserShowComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    component.onVoted(3);
+    component.onVoted(1);
 
-    expect(component.likes).toBe(3);
+    expect(component.likes).toBe(1);
   });
 });
