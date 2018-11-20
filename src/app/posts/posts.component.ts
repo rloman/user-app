@@ -11,7 +11,6 @@ export class PostsComponent {
   @Input()
   private posts: Post[];
 
-
   @Output()  // <= this is the output 
   private voted:EventEmitter<number> = new EventEmitter<number>();
 
