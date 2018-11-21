@@ -32,6 +32,11 @@ const routes: Routes = [
     component: UserEditComponent
   },
   {
+    path: '/login',
+    component: 
+
+  },
+  {
     path: '**', // this SHOULD!!! be the last entry in your app-routing.module.ts file!!!
 		// invalid route => // / !!!! http://localhost:4200/ (redirectTo users)
     redirectTo: 'users',
