@@ -9,10 +9,11 @@ export class AuthService {
 
   constructor() { }
 
-  private realm = {
+  // a very, very simple realm
+  private realm: {[key:string]:string;} = {
 
-    ray: "flowers"
-
+    rloman: "testing2018!",
+    george: "testingwithgeorge"
   }
 
   isLoggedIn = false;
@@ -24,7 +25,8 @@ export class AuthService {
 
     let result;
 
-    if(this.realm.ray === password) {
+    // validate the user
+    if(this.realm[username] === password) {
       result = true;
     }
     else {
