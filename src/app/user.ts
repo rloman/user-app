@@ -8,4 +8,13 @@ export class User {
         email: string;
 
         posts: Post[];
+
+        equals(user: User): boolean {
+                if(this.name === user.name && this.email === user.email && this.username === user.username) {
+                        return true;
+                }
+                else {
+                        return false;
+                }
+        }
 }
