@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   message: string;
+
+  private username: string;
+  private password: string;
  
   constructor(public authService: AuthService, public router: Router) {
     this.setMessage();
@@ -21,8 +24,8 @@ export class LoginComponent {
  
   login() {
     this.message = 'Trying to log in ...';
- 
-    this.authService.login().subscribe(() => {
+
+    this.authService.login(this.username, this.password).subscribe(() => {
       this.setMessage();
       if (this.authService.isLoggedIn) {
         // Get the redirect URL from our auth service
