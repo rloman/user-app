@@ -9,26 +9,30 @@ import { AuthService } from './admin/auth.service';
 export class CanActivateGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {
-    
+
   }
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-      let url: string = state.url;
+    let url: string = state.url;
 
-      return this.checkLogin(url);
+    return this.checkLogin(url);
   }
 
   checkLogin(url: string): boolean {
-    if (this.authService.isLoggedIn) { return true; }
+    if (this.authService.isLoggedIn) {
+      return true;
+    }
+    else {
+      // Store the attempted URL for redirecting
+      this.authService.redirectUrl = url;
 
-    // Store the attempted URL for redirecting
-    this.authService.redirectUrl = url;
-
-    // Navigate to the login page with extras
-    this.router.navigate(['/login']);
-    return false;
+      // Navigate to the login page with extras
+      this.router.navigate(['/login']);
+      
+      return false;
+    }
   }
 }
 /*
