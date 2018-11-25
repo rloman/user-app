@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { UserShowComponent } from './user-show/user-show.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { PostsComponent } from './posts/posts.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 
@@ -21,7 +22,8 @@ import { PostsComponent } from './posts/posts.component';
     UserCreateComponent,
     UserShowComponent,
     UserEditComponent,
-    PostsComponent
+    PostsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, // this Module also re-exports CommonModule which is imported ngIf, ngFor and the now used  async pipe in UsersComponent.html

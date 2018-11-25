@@ -4,6 +4,8 @@ import { UsersComponent } from './users/users.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserShowComponent } from './user-show/user-show.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { CanActivateGuard } from './can-activate.guard';
+import { LoginComponent } from './auth/login/login.component';
 
 // a json expressing our routes
 const routes: Routes = [
@@ -13,7 +15,8 @@ const routes: Routes = [
   },
   {
     path: 'users/create',
-    component: UserCreateComponent
+    component: UserCreateComponent,
+    canActivate: [CanActivateGuard]
   },
   {
     path: '',
@@ -28,6 +31,11 @@ const routes: Routes = [
     path: 'users/edit/:id', 
 // you can make a button now like this <button [routerLink]="['users', 'edit', user.id]">Edit</button>
     component: UserEditComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+
   },
   {
     path: '**', // this SHOULD!!! be the last entry in your app-routing.module.ts file!!!
