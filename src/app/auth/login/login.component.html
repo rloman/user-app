@@ -3,7 +3,7 @@
 <p>
 
   <input [(ngModel)]='username' />
-  <input [(ngModel)]='password' />
+  <input type="password" [(ngModel)]='password' />
 
   <button (click)="login()"  *ngIf="!authService.isLoggedIn">Login</button>
   <button (click)="logout()" *ngIf="authService.isLoggedIn">Logout</button>

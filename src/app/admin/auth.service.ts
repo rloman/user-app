@@ -13,7 +13,8 @@ export class AuthService {
   private realm: {[key:string]:string;} = {
 
     rloman: "testing2018!",
-    george: "testingwithgeorge"
+    george: "testingwithgeorge",
+    erika: "erikarocks!" // and more and more names :-)
   }
 
   isLoggedIn = false;
