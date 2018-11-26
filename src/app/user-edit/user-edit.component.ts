@@ -43,7 +43,7 @@ export class UserEditComponent implements OnInit, CanComponentDeactivate {
     })
   }
 
-  canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
+  onLeave(): boolean | Observable<boolean> | Promise<boolean> {
 
     // be aware of order this.user fails since this.user seems not to be a User (typeof is object)
     if(this.saving) {
