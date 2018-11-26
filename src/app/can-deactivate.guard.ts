@@ -3,7 +3,9 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanDeactivate
 import { Observable } from 'rxjs';
 
 export interface CanComponentDeactivate {
-  canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
+
+  // rloman deze method names kunnen verwarrend zijn!
+  canDeactivate() : Observable<boolean> | Promise<boolean> | boolean
  }
 
 
