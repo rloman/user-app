@@ -10,7 +10,7 @@ export class AuthService {
   constructor() { }
 
   // a very, very simple realm
-  private realm: {[key:string]:string;} = {
+  private realm: { [key: string]: string; } = {
 
     rloman: "testing2018!",
     george: "testingwithgeorge",
@@ -26,12 +26,18 @@ export class AuthService {
 
     let result;
 
-    // validate the user
-    if(this.realm[username] === password) {
-      result = true;
+    // first validate for null input
+    if (!username || !password) {
+      result = false;
     }
     else {
-      result = false;
+      // validate the user
+      if (this.realm[username] === password) {
+        result = true;
+      }
+      else {
+        result = false;
+      }
     }
 
     return of(result).pipe(
