@@ -14,7 +14,7 @@ export class LoginComponent {
   private username: string;
   private password: string;
  
-  constructor(public authService: AuthService, public router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
     this.setMessage();
   }
  
