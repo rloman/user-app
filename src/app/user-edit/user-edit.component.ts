@@ -30,16 +30,12 @@ export class UserEditComponent implements OnInit, CanComponentDeactivate {
   ngOnInit(): void {
     const id = +this.route.snapshot.params["id"];
 
-    this.userService.findById(id).subscribe(user => {
+    this.userService.findById(id).subscribe(userResult => {
 
-      this.user = user;
+      this.user = new User(userResult);
       
       // save the user for later to test if it is changed here! (might be a better way :-)
-      this.editUser = new User();
-      this.editUser.id = user.id;
-      this.editUser.name = user.name;
-      this.editUser.username = user.username;
-      this.editUser.email = user.email;
+      this.editUser = new User(userResult);
     })
   }
 
@@ -50,7 +46,7 @@ export class UserEditComponent implements OnInit, CanComponentDeactivate {
       return true;
     }
     else {
-      if(this.editUser.equals(this.user)) {
+      if(this.user.equals(this.editUser)) {
         console.log("no changes!");
         return true;
       }
