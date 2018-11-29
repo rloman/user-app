@@ -17,8 +17,6 @@ export class UserEditComponent implements OnInit, CanComponentDeactivate {
 
   private editUser: User;
 
-  private saving: boolean = false;
-
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
@@ -42,10 +40,6 @@ export class UserEditComponent implements OnInit, CanComponentDeactivate {
   onLeave(): boolean | Observable<boolean> | Promise<boolean> {
 
     // be aware of order this.user fails since this.user seems not to be a User (typeof is object)
-    if(this.saving) {
-      return true;
-    }
-    else {
       if(this.user.equals(this.editUser)) {
         console.log("no changes!");
         return true;
@@ -60,13 +54,15 @@ export class UserEditComponent implements OnInit, CanComponentDeactivate {
       }
     }
     
-  }
 
   update(): void {
     
-    this.userService.update(this.user).subscribe(updatedUser => {
+    this.userService.update(this.editUser).subscribe(updatedUser => {
+
+      // not sure if updatedUser is OK here so since that I am using the editUser here!
+      this.user = this.editUser;
+      
       console.log("Updated in Component: " + updatedUser.id)
-      this.saving = true;
       this.router.navigate(["users", this.user.id]);
     });
   }

@@ -1,10 +1,10 @@
-<h1>Overview of details for user {{ user?.name }}</h1>
-<div *ngIf="user">
+<h1>Overview of details for user {{ editUser?.name }}</h1>
+<div *ngIf="editUser">
 
-  id: <input readonly [(ngModel)] = "user.id"><br/>
-  name: <input [(ngModel)]= "user.name"> <br />
-  username: <input [(ngModel)] = "user.username"><br />
-  email: <input [(ngModel)]="user.email"> <br />
+  id: <input readonly [(ngModel)] = "editUser.id"><br/>
+  name: <input [(ngModel)]= "editUser.name"> <br />
+  username: <input [(ngModel)] = "editUser.username"><br />
+  email: <input [(ngModel)]="editUser.email"> <br />
 
   <button class="edit" (click)="update();">Save</button>
 
